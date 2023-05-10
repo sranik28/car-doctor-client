@@ -37,7 +37,7 @@ const Login = () => {
                         <span><AiFillLinkedin className='w-5 h-5 text-sky-600' /></span>
                         <span><FcGoogle className='w-5 h-5 ' /></span>
                     </div>
-                    <p className='text-center my-5'>Haven't an account? <Link className='text-[#FF3811]' to='/sign-up'>Sign Up</Link></p>
+                    <p className='text-center my-5'>Haven't an account? <Link className='text-[#FF3811] font-bold' to='/sign-up'>Sign Up</Link></p>
                 </form>
             </div>
         </div>
