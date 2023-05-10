@@ -9,9 +9,9 @@ import banner4 from '../../assets/images/banner/4.jpg'
 const Banner = () => {
     return (
         <div className="carousel w-full object-cover h-[95vh] rounded">
-            <div id="slide1" className="carousel-item relative w-full">
-                <div className='before:content-[""] h-screen w-full before:bg-[#000000a3] relative before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0'>
-                    <img src={banner1} className="w-full h-screen " />
+            <div id="slide1" className="carousel-item relative w-full  ">
+                <div className='before:content-[""] h-screen w-full before:bg-[#000000a3] relative before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 rounded-lg'>
+                    <img src={banner1} className="w-full h-screen rounded-xl" />
                     <div className="absolute h-full text-white gap-5  md:top-40 md:left-10 space-y-7">
                         <h2 className='text-6xl font-bold '>Affordable <br /> Price For Car <br /> Servicing</h2>
                         <p>There are many variations of passages of  available, but <br /> the majority have suffered alteration in some form</p>
