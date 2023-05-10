@@ -7,10 +7,10 @@ import logo from '../../assets/logo.svg'
 
 const NavBar = () => {
 
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
     
     return (
-        <nav className=''>
+        <nav>
             <div className='max-w-[1240px] mx-auto flex justify-between p-3 items-center'>
 
                 <Link to='/' > <img className='md:w-20 w-14 h-14 md:h-20' src={logo} alt="" /></Link>
