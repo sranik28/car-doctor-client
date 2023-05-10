@@ -7,12 +7,17 @@ import { AiFillLinkedin } from 'react-icons/ai';
 
 
 const Login = () => {
+
+    const handelLogin = (e) => {
+        e.preventDefault();
+    }
+
     return (
         <div className='grid md:grid-cols-2 my-20 gap-6 px-3'>
             <img src={login} alt="" />
             <div>
                 <h1 className='text-3xl font-bold text-center mb-5'>Login</h1>
-                <form className='md:w-[60%]  mx-auto'>
+                <form onSubmit={handelLogin} className='md:w-[60%]  mx-auto'>
                     <div className="form-control">
                         <label className="label">
                             <span className="text-[#444444] font-semibold text-lg text-center">Email</span>
