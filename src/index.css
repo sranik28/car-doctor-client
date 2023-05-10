@@ -5,3 +5,10 @@
 .appointment-btn{
     @apply px-6 py-3 bg-white text-[#FF3811] font-semibold  rounded-md border border-[#FF3811] 
 }
+.Discover-btn{
+    @apply px-6 py-3 bg-[#FF3811] rounded-md font-semibold text-white
+}
+.outlet{
+    @apply px-6 py-3 border border-white rounded-md font-semibold text-white
+}
+/*  */
