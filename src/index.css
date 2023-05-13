@@ -11,4 +11,6 @@
 .outlet{
     @apply px-6 py-3 border border-white rounded-md font-semibold text-white
 }
-/*  */
+.active{
+    @apply text-[#FF3811] underline font-bold
+}
