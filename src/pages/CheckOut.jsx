@@ -65,7 +65,7 @@ const CheckOut = () => {
 
                     <input className='w-full py-2 outline-none border' type="email" defaultValue={user?.email} name="email" id="" placeholder='Email' required />
                     <input className='w-full py-2 outline-none border' type="text" name="phon" id="" placeholder='Phon number' required />
-                    <input className='w-full py-2 outline-none border' type="text" name="price" id="" placeholder='Price' required />
+                    <input className='w-full py-2 outline-none border' type="text" name="price" defaultValue={`$ ${price}`} placeholder='Price' required />
                     <input className='w-full py-2 outline-none border' type="date" name="date" id="" required />
 
                     <textarea name="message" id="" className='col-span-2 w-full outline-none border ' placeholder='Message'></textarea>

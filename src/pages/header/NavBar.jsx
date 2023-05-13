@@ -4,11 +4,13 @@ import { HiMenu } from 'react-icons/hi';
 import { GrFormClose } from 'react-icons/gr';
 import { AiOutlineShopping, AiOutlineSearch } from 'react-icons/ai';
 import logo from '../../assets/logo.svg'
+import { useAuthData } from '../../context/Context';
 
 const NavBar = () => {
+    const { user, logOut } = useAuthData()
 
     const [toggle, setToggle] = useState(false);
-    
+
     return (
         <nav>
             <div className='max-w-[1240px] mx-auto flex justify-between p-3 items-center'>
@@ -31,8 +33,18 @@ const NavBar = () => {
                             isActive ? "active" : ""} onClick={() => setToggle(false)}>Blog</NavLink>
                         <NavLink to="/blog" className={({ isActive }) =>
                             isActive ? "active" : ""} onClick={() => setToggle(false)}>Contact</NavLink>
-                        <NavLink to="/login" className={({ isActive }) =>
-                            isActive ? "active" : ""} onClick={() => setToggle(false)}>Login</NavLink>
+                        {
+                            user?.email ? <NavLink to="/bookings" className={({ isActive }) =>
+                                isActive ? "active" : ""} onClick={() => setToggle(false)}>bookings</NavLink> : ""
+                        }
+
+                    </li>
+                    <li>
+                        {
+                            user?.email ?
+                                <Link to='/sign-up'><button onClick={logOut} className='px-5 py-2 bg-[#FF3811] text-white rounded-md'>LogOut</button></Link>
+                                : <Link to='/login'><button className='px-5 py-2 bg-[#FF3811] text-white rounded-md'>Login</button></Link>
+                        }
                     </li>
                     <li className='flex items-center gap-5'>
                         <span> <AiOutlineShopping className='w-6 h-6' /> </span>
