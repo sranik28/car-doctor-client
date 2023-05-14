@@ -22,11 +22,8 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => {
         setLoading(true);
-        signOut(auth)
-            .then()
-            .catch(error => {
-                console.log(error)
-            })
+        return signOut(auth)
+
     }
 
     const provider = new GoogleAuthProvider();

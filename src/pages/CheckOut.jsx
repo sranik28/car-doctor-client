@@ -8,6 +8,7 @@ const CheckOut = () => {
     const { user } = useAuthData()
     const serviceCheckOut = useLoaderData();
     const { title, img, _id, price } = serviceCheckOut;
+    
 
 
     const handelCheckOut = (e) => {

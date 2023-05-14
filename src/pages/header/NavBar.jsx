@@ -11,6 +11,16 @@ const NavBar = () => {
 
     const [toggle, setToggle] = useState(false);
 
+    const handelLogOut = () => {
+        logOut()
+            .then(() => {
+                localStorage.removeItem('car-access-token')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
         <nav>
             <div className='max-w-[1240px] mx-auto flex justify-between p-3 items-center'>
@@ -42,7 +52,7 @@ const NavBar = () => {
                     <li>
                         {
                             user?.email ?
-                                <Link to='/sign-up'><button onClick={logOut} className='px-5 py-2 bg-[#FF3811] text-white rounded-md'>LogOut</button></Link>
+                                <Link to='/sign-up'><button onClick={handelLogOut} className='px-5 py-2 bg-[#FF3811] text-white rounded-md'>LogOut</button></Link>
                                 : <Link to='/login'><button className='px-5 py-2 bg-[#FF3811] text-white rounded-md'>Login</button></Link>
                         }
                     </li>

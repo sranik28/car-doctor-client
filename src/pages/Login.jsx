@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import login from '../assets/images/login/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebookF } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { AiFillLinkedin } from 'react-icons/ai';
@@ -11,6 +11,9 @@ const Login = () => {
 
     const { signIn, signInGoogle } = useAuthData();
     const [error, setError] = useState("");
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/'
 
     const handelLogin = (e) => {
         e.preventDefault();
@@ -22,7 +25,24 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const users = result.user;
-                console.log(users)
+                const loggedUser = {
+                    email: users.email
+                }
+                console.log(loggedUser)
+
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(loggedUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('jwt', data)
+                        localStorage.setItem('car-access-token', data.token)
+                        navigate(from, { replace: true })
+                    })
             })
             .catch(error => {
                 console.log(error)
@@ -33,7 +53,9 @@ const Login = () => {
 
     const handelGoogle = () => {
         signInGoogle()
-            .then(result => { })
+            .then(result => {
+                navigate(from, { replace: true })
+            })
             .catch(error => { })
     }
 

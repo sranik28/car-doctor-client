@@ -47,6 +47,7 @@ const Footer = () => {
                     </span></h1>
                 </div>
             </div>
+            <h1>anik</h1>
         </div>
     );
 };
