@@ -3,21 +3,33 @@ import { useAuthData } from '../context/Context';
 import banner from '../assets/images/cart details/Rectangle 1548.png'
 import BookingBody from '../components/BookingBody';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Bookings = () => {
 
     const { user } = useAuthData();
     console.log(user.email)
     const [bookings, setBookings] = useState([]);
+    const navigate = useNavigate()
 
     const url = `http://localhost:5000/checkOuts?email=${user?.email}`;
     useEffect(() => {
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('car-access-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
-                setBookings(data)
+                if (!data.error) {
+                    setBookings(data)
+                }
+                else {
+                    navigate('/')
+                }
             })
-    }, [url])
+    }, [url, navigate])
 
     const HandelDelete = (id) => {
 

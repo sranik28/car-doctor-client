@@ -14,7 +14,6 @@ const NavBar = () => {
     const handelLogOut = () => {
         logOut()
             .then(() => {
-                localStorage.removeItem('car-access-token')
             })
             .catch(error => {
                 console.log(error)
